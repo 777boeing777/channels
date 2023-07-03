@@ -65,6 +65,7 @@
         }
 
 
+
   </style>
   {% block css %} {% endblock %}
 
@@ -145,7 +146,8 @@
       <div class="flex-shrink-0 dropdown" style="margin-right: 20px">
         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle show" id="dropdownUser2"
            data-bs-toggle="dropdown" aria-expanded="true">
-          <img src="https://sun9-61.userapi.com/impg/AWuoRXWu3x92T4TUqfDoEkvtXvC0xHTMl4X1uw/tOXeouVqa3Q.jpg?size=1280x800&quality=95&sign=f14aa3218cf2071a3842eedbd7937ffe&type=album" alt="mdo" width="100" height="100"
+          <img src="https://sun9-61.userapi.com/impg/AWuoRXWu3x92T4TUqfDoEkvtXvC0xHTMl4X1uw/tOXeouVqa3Q.jpg?size=1280x800&quality=95&sign=f14aa3218cf2071a3842eedbd7937ffe&type=album"
+               alt="mdo" width="100" height="100"
                class="rounded-circle">
         </a>
         <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2"
@@ -165,7 +167,6 @@
   </div>
 </nav>
 
-{{ room_name|json_script:"room-name" }}
 <script>
         const notificationSocket = new EventSource(
             'http://'
@@ -190,7 +191,9 @@
 
 
 
-<!--</script>-->
+<!--
+</script>
+-->
 
 {% block body %} {% endblock %}
 
