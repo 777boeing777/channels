@@ -4,14 +4,14 @@ from django.dispatch import receiver
 from django_eventstream import send_event
 
 
-class BroadcastNotification(models.Model):
+class Notification(models.Model):
     message = models.TextField()
 
     def __str__(self) -> str:
         return f'{self.message}'
 
 
-@receiver(post_save, sender=BroadcastNotification)
+@receiver(post_save, sender=Notification)
 def notification_handler(sender, instance, created, **kwargs):
     send_event(
         'notification_broadcast',

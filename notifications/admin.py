@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import BroadcastNotification
+from .models import Notification
 
 
 class NotificationAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(BroadcastNotification, NotificationAdmin)
+admin.site.register(Notification, NotificationAdmin)

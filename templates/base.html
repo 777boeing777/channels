@@ -169,10 +169,7 @@
 
 <script>
         const notificationSocket = new EventSource(
-            'http://'
-            + window.location.host
-            + '/notifications'
-            + '/'
+            'http://127.0.0.1:8000/notifications/'
         );
 
         notificationSocket.onmessage = function(e) {
@@ -187,16 +184,8 @@
             console.error('Chat socket closed unexpectedly');
         };
 
-
-
-
-
-<!--
 </script>
--->
-
 {% block body %} {% endblock %}
-
 </body>
 {% block js %}
 <script src="{% static 'django_eventstream/eventsource.min.js' %}"></script>

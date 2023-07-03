@@ -38,8 +38,10 @@ DEFAULT_APPS = [
 ]
 
 DJANGO_EXTRA_APPS = [
+    'django_extensions',
     'channels',
     'django_eventstream',
+    "corsheaders",
 ]
 
 CUSTOM_APPS = [
@@ -76,8 +78,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mysite.wsgi.application'
-
 ASGI_APPLICATION = "mysite.asgi.application"
 
 # Database
@@ -89,6 +89,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+EVENTSTREAM_STORAGE_CLASS = 'django_eventstream.storage.DjangoModelStorage'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -128,3 +130,22 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EVENTSTREAM_ALLOW_ORIGIN = 'https://127.0.0.1:6379'
+EVENTSTREAM_ALLOW_CREDENTIALS = True
+# EVENTSTREAM_ALLOW_HEADERS = 'Authorization'
+
+CORS_ALLOWED_ORIGINS = [
+    "https://localhost:8000",
+    "https://127.0.0.1:9000",
+    "https://127.0.0.1:6379",
+]
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}

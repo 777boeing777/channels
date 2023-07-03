@@ -72,7 +72,8 @@ instance/
 
 # Sphinx documentation
 docs/_build/
-
+cert.perm
+key.perm
 # PyBuilder
 target/
 
